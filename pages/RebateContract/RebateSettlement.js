@@ -97,7 +97,7 @@ class Registration extends Component {
       });
 
       const docM = doc(this.state.db, "Manufacturer", id);
-        await updateDoc(docM, { rebateAsked:true }).then(() => {
+        await updateDoc(docM, { rebateAsked:"true" }).then(() => {
         });
     } catch (err) {
       this.setState({ errorMessageRR: err.message });
