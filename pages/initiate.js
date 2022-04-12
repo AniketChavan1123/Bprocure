@@ -217,17 +217,17 @@ class GPOcontracts extends Component {
       const accounts = await web3.eth.getAccounts();
       const selfaddress = accounts[0];
 
-      await factory.methods.createRebatesSettelment().send({
-        from: accounts[0],
-      });
-      const rsAdd = await factory.methods
-        .deployedRegistrationContracts(accounts[0], 3)
-        .call();
-      this.state.add.push(rsAdd);
-      const docRef = doc(this.state.db, "GPOs", selfaddress);
-      updateDoc(docRef, {
-        rs: rsAdd,
-      });
+      // await factory.methods.createRebatesSettelment().send({
+      //   from: accounts[0],
+      // });
+      // const rsAdd = await factory.methods
+      //   .deployedRegistrationContracts(accounts[0], 3)
+      //   .call();
+      // this.state.add.push(rsAdd);
+      // const docRef = doc(this.state.db, "GPOs", selfaddress);
+      // updateDoc(docRef, {
+      //   rs: rsAdd,
+      // });
       const colRefSer = collection(this.state.db, "ServiceProvider");
       const q = query(colRefSer, where("gpo", "==", selfaddress)).orderBy("registration");
       let id;
