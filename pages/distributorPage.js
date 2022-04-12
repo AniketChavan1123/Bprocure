@@ -112,14 +112,16 @@ class GPOIndex extends Component {
               <i className="teal file alternate icon"></i>
               Visit {obj.institute}'s Purchase Order Contract
             </a>
-          </Link>,
-          <Link route={`/RebateContract/${obj.rs}`}>
-          <a>
-            <i className="teal file alternate icon"></i>
-            Visit {obj.institute}'s Rebate Contract
-          </a>
-        </Link>
+          </Link>
         ),
+        description: (<Link route={`/RebateContract/${obj.rs}`}>
+        <a>
+          <i className="teal file alternate icon"></i>
+          Visit {obj.institute}'s Rebate Contract
+        </a>
+      </Link>
+        ),
+
         fluid: true,
       };
     });
