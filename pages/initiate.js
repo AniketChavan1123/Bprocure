@@ -229,7 +229,7 @@ class GPOcontracts extends Component {
       //   rs: rsAdd,
       // });
       const colRefSer = collection(this.state.db, "ServiceProvider");
-      const q = query(colRefSer, where("gpo", "==", selfaddress),orderBy("registration"));
+      const q = query(colRefSer,orderBy("registration"),where("gpo", "==", selfaddress));
       let id;
       await getDocs(q).then((snapshot) => {
         snapshot.docs.forEach((doc) => {
