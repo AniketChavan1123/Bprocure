@@ -217,7 +217,7 @@ class GPOcontracts extends Component {
     try {
       const accounts = await web3.eth.getAccounts();
       const selfaddress = accounts[0];
-
+      const rsAdd="0xb68EB2DcCab2e1B58C98B35Ab2BC0343E86B6a08";
       // await factory.methods.createRebatesSettelment().send({
       //   from: accounts[0],
       // });
@@ -241,6 +241,20 @@ class GPOcontracts extends Component {
         await updateDoc(docR, { rs: rsAdd }).then(() => {
           console.log("added rs");
         });
+
+        const colRefDis = collection(this.state.db, "Distributor");
+      const qd = query(colRefDis, where("gpo", "==", selfaddress));
+      let idd;
+      await getDocs(qd).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          idd=doc.id;
+        });
+      });
+      const docRd = doc(this.state.db, "Distributor", idd);
+        await updateDoc(docRd, { rs: rsAdd }).then(() => {
+          console.log("added rs");
+        });
+
 
 
     } catch (err) {
