@@ -16,7 +16,7 @@ import {
   collection,
   query,
   where,
-  getDoc,
+  getDocs,
   getFirestore,
   addDoc,
   deleteDoc,
