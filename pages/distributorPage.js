@@ -114,7 +114,7 @@ class GPOIndex extends Component {
             </a>
           </Link>
         ),
-        description: (<Link route={`/RebateContract/${obj.rs}`}>
+        meta: (<Link route={`/RebateContract/${obj.rs}`}>
         <a>
           <i className="teal file alternate icon"></i>
           Visit {obj.institute}'s Rebate Contract
