@@ -194,12 +194,12 @@ class GPOIndex extends Component {
                 ></Input>
               </Form.Field>
               <Button color="teal">Sign in</Button>
-              <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Sign Up</Link></Button>
               <Message
                 error
                 header="Oops!"
                 content={this.state.lerrorMessage}
               />
+               <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Sign Up</Link></Button>
             </Form>
           </Segment>
         </Container>
