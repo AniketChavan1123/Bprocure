@@ -74,19 +74,19 @@ class Registration extends Component {
     event.preventDefault();
     this.setState({ loadingRR: true });
     try {
-      console.log("i am here");
-      const accounts = await web3.eth.getAccounts();
-      const rebateSettlement = RebateSettlement(this.props.address);
+      // console.log("i am here");
+      // const accounts = await web3.eth.getAccounts();
+      // const rebateSettlement = RebateSettlement(this.props.address);
 
-      await rebateSettlement.methods
-        .submitRebateRequest(
-          this.state.contractAdd,
-          this.state.amount,
-          this.state.manufacturerAdd
-        )
-        .send({
-          from: accounts[0],
-        });
+      // await rebateSettlement.methods
+      //   .submitRebateRequest(
+      //     this.state.contractAdd,
+      //     this.state.amount,
+      //     this.state.manufacturerAdd
+      //   )
+      //   .send({
+      //     from: accounts[0],
+      //   });
         const colRefMan = collection(this.state.db,"Manufacturer");
         const q=query(colRefMan,where("contractNumber","==",this.state.contractAdd));
         let id = '';
