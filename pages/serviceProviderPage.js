@@ -80,7 +80,7 @@ class GPOIndex extends Component {
     this.setState({ account: accounts[0] });
     const colRefSer = collection(this.state.db, "ServiceProvider");
     const regisq = query(colRefSer, orderBy("registration"));
-    const q=query(colRefSer,orderBy("po"));
+    const q=query(colRefSer,orderBy("contractNumber"));
     let conNum = new Array();
     
 
