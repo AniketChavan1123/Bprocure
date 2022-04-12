@@ -228,6 +228,20 @@ class GPOcontracts extends Component {
       updateDoc(docRef, {
         rs: rsAdd,
       });
+      const colRefSer = collection(this.state.db, "ServiceProvider");
+      const q = query(colRefSer, where("gpo", "==", selfaddress)).orderBy("registration");
+      let id;
+      await getDocs(q).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          id=doc.id;
+        });
+      });
+      const docR = doc(this.state.db, "ServiceProvider", id);
+        await updateDoc(docR, { rs: rsAdd }).then(() => {
+          console.log("added rs");
+        });
+
+
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
