@@ -123,14 +123,14 @@ class GPOIndex extends Component {
              <br></br>Registration Address: {obj.registration}
           </h5>
         ),
-        description: (
+        meta: (
           <Link route={`/RContract/${obj.registration}`}>
             <a>
               <i className="teal file alternate icon"></i>
               Visit {obj.institute}'s Registration Contract
             </a>
           </Link>),
-          meta:(
+          description:(
           <Link route={`/RebateContract/${obj.rs}`}>
             <a>
               <i className="teal file alternate icon"></i>
