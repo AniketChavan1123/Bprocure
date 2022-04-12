@@ -116,7 +116,8 @@ class PurchaseNegotiation extends Component {
           pn:pn,
           gpo:selfaddress,
           contractNumber:conNum,
-          manufacturer:this.state.manufacturerAdd
+          manufacturer:this.state.manufacturerAdd,
+          rebateAsked:false
       }).then(() => {
         console.log("added");
       });

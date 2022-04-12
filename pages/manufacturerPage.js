@@ -154,6 +154,8 @@ class GPOIndex extends Component {
             {this.state.manufacturers[index]?.institute}
              <br></br> 
              Contract Number: {contractNumber}
+             <br></br> 
+             Rebate Asked: {this.state.manufacturers[index]?.rebateAsked}
           </h5>
         ),
         description: (

@@ -87,6 +87,18 @@ class Registration extends Component {
         .send({
           from: accounts[0],
         });
+        const colRefMan = collection(this.state.db,"Manufacturer");
+        const q=query(colRefMan,where("contractNumber","==",this.state.contractAdd));
+        let id = '';
+      await getDocs(q).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          id=doc.id;
+        });
+      });
+
+      const docM = doc(this.state.db, "Manufacturer", id);
+        await updateDoc(docM, { rebateAsked:true }).then(() => {
+        });
     } catch (err) {
       this.setState({ errorMessageRR: err.message });
     }
