@@ -199,7 +199,7 @@ class GPOIndex extends Component {
                 header="Oops!"
                 content={this.state.lerrorMessage}
               />
-               <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Sign Up</Link></Button>
+               <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Goto GPO Dashboard</Link></Button>
             </Form>
           </Segment>
         </Container>
