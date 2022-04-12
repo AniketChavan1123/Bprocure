@@ -53,10 +53,10 @@ class PurchaseNegotiation extends Component {
     loadingNegoC: false,
     loadingCS: false,
     loadingAD: false,
-    errorMessageNC: "",
-    errorMessageNegoC: "",
-    errorMessageCS: "",
-    errorMessageAD: "",
+    errorMessageNC: '',
+    errorMessageNegoC: '',
+    errorMessageCS: '',
+    errorMessageAD: '',
     auth:'',
     db:''
   };
@@ -85,6 +85,9 @@ class PurchaseNegotiation extends Component {
   onSubmitNewContract = async (event) => {
     event.preventDefault();
     this.setState({ loadingNC: true });
+    this.setState({
+      errorMessageNC: '',
+    });
     try {
       console.log("i am here");
       const accounts = await web3.eth.getAccounts();
@@ -128,6 +131,9 @@ class PurchaseNegotiation extends Component {
   onSubmitNegotiateContract = async (event) => {
     event.preventDefault();
     this.setState({ loadingNegoC: true });
+    this.setState({
+      errorMessageNegoC: '',
+    });
     try {
       console.log("i am here");
       const accounts = await web3.eth.getAccounts();
@@ -150,6 +156,9 @@ class PurchaseNegotiation extends Component {
   onSubmitContractStatus = async (event) => {
     event.preventDefault();
     this.setState({ loadingCS: true });
+    this.setState({
+      errorMessageCS: '',
+    });
     try {
       console.log("i am here");
       console.log(this.state.statusCon);
@@ -168,7 +177,7 @@ class PurchaseNegotiation extends Component {
       // }
     } catch (err) {
       this.setState({
-        errorMessageNegoC: err.message,
+        errorMessageCS: err.message,
       });
       console.log(err.message);
     }
@@ -178,6 +187,9 @@ class PurchaseNegotiation extends Component {
   onSubmitAssignDistributor = async (event) => {
     event.preventDefault();
     this.setState({ loadingAD: true });
+    this.setState({
+      errorMessageAD: '',
+    });
     try {
       console.log("i am here");
       const accounts = await web3.eth.getAccounts();
@@ -223,7 +235,7 @@ class PurchaseNegotiation extends Component {
 
     } catch (err) {
       this.setState({
-        errorMessageNegoC: err.message,
+        errorMessageAD: err.message,
       });
       console.log(err.message);
     }
