@@ -92,7 +92,7 @@ class GPOIndex extends Component {
     try{
     console.log("i am here");
     const accounts = await web3.eth.getAccounts();
-    this.setState({account1:accounts[0]});
+    this.setState({account:accounts[0]});
     const selfaddress=accounts[0];
     const insti=this.state.institute;
     console.log(this.state.institute);
@@ -162,7 +162,7 @@ class GPOIndex extends Component {
                   }
                 ></Input>
               </Form.Field>
-              <Button color="teal"><Link route={`/initiate/${this.state.account1}`}>Sign Up</Link></Button>
+              <Button color="teal">Sign Up</Button>
               <Message error header="Oops!" content={this.state.errorMessage} />
             </Form>
             <Form
@@ -193,9 +193,8 @@ class GPOIndex extends Component {
                   }
                 ></Input>
               </Form.Field>
-              <Button color="teal"><Link route={`/initiate/${this.state.account}`}>
-                  Sign in
-          </Link></Button>
+              <Button color="teal">Sign in</Button>
+              <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Sign Up</Link></Button>
               <Message
                 error
                 header="Oops!"
