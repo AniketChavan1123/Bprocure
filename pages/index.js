@@ -53,7 +53,7 @@ class GPOIndex extends Component {
       <IndexPage>
         <Container>
           <Segment>
-          <h1>Hello</h1>
+          <h1>Hello Stakeholders</h1>
           <Button
               
               color="teal"
