@@ -103,7 +103,7 @@ class GPOIndex extends Component {
              <br></br>GPO Address: {obj.gpo}
              <br></br>Contract Number: {obj.contractNumber}
              <br></br>Purchase Order Number: {obj.poNumber}
-             
+             <br></br><a href={obj.spReceipt}>Receipt</a>
           </h5>
         ),
         meta: (

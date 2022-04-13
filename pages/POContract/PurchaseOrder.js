@@ -86,11 +86,6 @@ class POContract extends Component {
     this.setState({ loadingPO: true });
     try {
       
-     
-      console.log("ipfs code");
-      console.log("object.push( Returned CID as PO Number )");
-      console.log("{this.setState({POnumber:{this.state.object[6]}})");
-      console.log("i am here");
       const accounts = await web3.eth.getAccounts();
       const purchaseOrder=PurchaseOrder(this.props.address);
 
@@ -99,16 +94,38 @@ class POContract extends Component {
         .send({
           from: accounts[0],
         });
-        let gpo,instituteName;
+        let gpo,instituteName,urlAtf;
       const colRefSer = collection(this.state.db, "ServiceProvider");
       const q=query(colRefSer,where("contractNumber","==",this.state.contractNumber))
       await getDocs(q).then((snapshot)=>{
         snapshot.docs.forEach((doc) => {
           gpo=doc.data().gpo;
           instituteName=doc.data().institute;
+          urlAtf=doc.data().contract;
         });
         
       })
+
+        // connect to Moralis server
+        const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
+        const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
+        await Moralis.start({ serverUrl, appId });
+          //signing in to moralis
+          await Moralis.authenticate().then(function (user) {
+            console.log('logged in')
+            });
+
+      const pocontractDetails={
+        "Contract URL":urlAtf,
+        "Contract Number":this.state.contractNumber,
+        "Distributor Address":this.state.distributorAdd,
+        "Po Number":this.state.poNumber
+      }
+        //uploading metadata
+      const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(pocontractDetails))});
+      await file.saveIPFS();
+      const urlAt=await file.ipfs();
+
       console.log(instituteName,gpo);
       const colRefDis=collection(this.state.db,"Distributor");
       addDoc(colRefDis, {
@@ -117,7 +134,8 @@ class POContract extends Component {
         poNumber: this.state.poNumber,
         distributor:this.state.distributorAdd,
         contractNumber:this.state.contractNumber,
-        po:this.props.address
+        po:this.props.address,
+        spReceipt:urlAt
       }).then(() => {
         console.log("added");
       });
