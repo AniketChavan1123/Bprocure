@@ -76,8 +76,8 @@ class POContract extends Component {
   }
   static async getInitialProps(props)
   {
-    const {address} = props.query;
-    return {address};
+    const {address,contract} = props.query;
+    return {address,contract};
 
   }
 
@@ -164,9 +164,10 @@ class POContract extends Component {
                   <Form.Field style={{ marginTop: "20px" }}>
                     <label>Enter Contract Number</label>
                     <Input
+                      disabled
                       label="number"
                       labelPosition="right"
-                      value={this.state.contractNumber}
+                      value={this.props.contract}
                       onChange={(event) =>
                         this.setState({ contractNumber: event.target.value })
                       }
