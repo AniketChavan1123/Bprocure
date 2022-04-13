@@ -98,7 +98,7 @@ class POContract extends Component {
         let instituteName;
         let urlAtf;
       const colRefSer = collection(this.state.db, "ServiceProvider");
-      const q=query(colRefSer,where("contractNumber","==",this.state.contractNumber))
+      const q=query(colRefSer,where("contractNumber","==",this.props.contract))
       await getDocs(q).then((snapshot)=>{
         snapshot.docs.forEach((doc) => {
           gpo=doc.data().gpo;
