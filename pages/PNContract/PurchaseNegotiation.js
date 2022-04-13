@@ -230,16 +230,25 @@ class PurchaseNegotiation extends Component {
       const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
       await file.saveIPFS();
       const urlAt=await file.ipfs();
+        let poAtsp;
+      const docRefgpo=doc(this.state.db,"GPOs",selfaddress);
+        await getDocs(docRefgpo).then((snapshot)=>{
+          snapshot.docs.forEach((doc)=>{
+            poAtsp=doc.data().po;
+          })
+        })
 
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {
           institute:instituteName,
             gpo:selfaddress,
             contractNumber:this.state.contractNumberAD,
-            contract:urlAt
+            contract:urlAt,
+            po:poAtsp
         }).then(() => {
           console.log("added");
         });
+
         const colRefMan = collection(this.state.db,"Manufacturer");
         const q=query(colRefMan,where("contractNumber","==",this.state.contractNumberAD));
         let id = '';
