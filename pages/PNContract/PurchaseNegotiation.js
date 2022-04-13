@@ -45,7 +45,7 @@ class PurchaseNegotiation extends Component {
     contractNumberNC: "",
     contractNumberCS: "",
     contractNumberAD: "",
-
+    object:[],
     distributorAdd: "",
     price: "",
     statusCon: false,
@@ -171,11 +171,6 @@ class PurchaseNegotiation extends Component {
           from: accounts[0],
         });
 
-      // if (this.state.statusCon) {
-      //   console.log(
-      //     "upload metadata to IPFS and ask user to check contract via load contract"
-      //   );
-      // }
     } catch (err) {
       this.setState({
         errorMessageCS: err.message,
@@ -204,17 +199,40 @@ class PurchaseNegotiation extends Component {
         .send({
           from: accounts[0],
         });
+        //fetched contract object
+        this.state.object = await purchaseNegotiationCon.methods
+        .contracts(this.state.contractNumberAD)
+        .call();
+
         const docRef = doc(this.state.db, "GPOs", selfaddress);
         let instituteName,registration;
         await getDoc(docRef).then((doc) => {
           instituteName = doc.data().institute;
           registration=doc.data().registration;
         });
+        // metadata to be uploaded
+        const contractDetails={
+          "Product Id":this.state.object[2],
+          "Price":this.state.object[4],
+          "Manufacturer Address":this.state.object[0],
+          "Distributor Address":this.state.object[1],
+          "Contract Status":this.state.object[5]
+        }
+        // connect to Moralis server
+      const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
+      const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
+      Moralis.start({ serverUrl, appId });
+      //uploading metadata
+      const file = new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
+      await file.saveIPFS();
+      const urlAt=file.ipfs();
+
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {
           institute:instituteName,
             gpo:selfaddress,
-            contractNumber:this.state.contractNumberAD
+            contractNumber:this.state.contractNumberAD,
+            contract:urlAt
         }).then(() => {
           console.log("added");
         });
@@ -228,7 +246,7 @@ class PurchaseNegotiation extends Component {
       });
 
       const docM = doc(this.state.db, "Manufacturer", id);
-        await updateDoc(docM, { distributor:this.state.distributorAdd }).then(() => {
+        await updateDoc(docM, { distributor:this.state.distributorAdd,contractAt:urlAt }).then(() => {
           console.log("added distributor");
         });
         
