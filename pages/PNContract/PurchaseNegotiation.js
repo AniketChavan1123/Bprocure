@@ -199,6 +199,10 @@ class PurchaseNegotiation extends Component {
         .send({
           from: accounts[0],
         });
+        // connect to Moralis server
+      const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
+      const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
+      Moralis.start({ serverUrl, appId });
         //signing in to moralis
         Moralis.authenticate().then(function (user) {
           console.log('logged in')
@@ -222,10 +226,6 @@ class PurchaseNegotiation extends Component {
           "Distributor Address":this.state.object[1],
           "Contract Status":this.state.object[5]
         }
-        // connect to Moralis server
-      const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
-      const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
-      Moralis.start({ serverUrl, appId });
       //uploading metadata
       const file = new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
       await file.saveIPFS();
