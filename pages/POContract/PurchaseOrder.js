@@ -119,7 +119,7 @@ class POContract extends Component {
 
       const pocontractDetails={
         "Contract URL":urlAtf,
-        "Contract Number":this.state.contractNumber,
+        "Contract Number":this.props.contract,
         "Distributor Address":this.state.distributorAdd,
         "Po Number":this.state.poNumber
       }
