@@ -199,6 +199,10 @@ class PurchaseNegotiation extends Component {
         .send({
           from: accounts[0],
         });
+        //signing in to moralis
+        Moralis.authenticate().then(function (user) {
+          console.log('logged in')
+          });
         //fetched contract object
         this.state.object = await purchaseNegotiationCon.methods
         .contracts(this.state.contractNumberAD)
