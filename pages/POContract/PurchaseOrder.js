@@ -94,7 +94,9 @@ class POContract extends Component {
         .send({
           from: accounts[0],
         });
-        let gpo,instituteName,urlAtf;
+        let gpo;
+        let instituteName;
+        let urlAtf;
       const colRefSer = collection(this.state.db, "ServiceProvider");
       const q=query(colRefSer,where("contractNumber","==",this.state.contractNumber))
       await getDocs(q).then((snapshot)=>{
@@ -124,7 +126,7 @@ class POContract extends Component {
         //uploading metadata
       const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(pocontractDetails))});
       await file.saveIPFS();
-      const urlAt=await file.ipfs();
+      const urlAts=await file.ipfs();
 
       console.log(instituteName,gpo);
       const colRefDis=collection(this.state.db,"Distributor");
@@ -135,7 +137,7 @@ class POContract extends Component {
         distributor:this.state.distributorAdd,
         contractNumber:this.state.contractNumber,
         po:this.props.address,
-        spReceipt:urlAt
+        spReceipt:urlAts
       }).then(() => {
         console.log("added");
       });
