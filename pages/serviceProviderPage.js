@@ -140,6 +140,14 @@ class GPOIndex extends Component {
              Contract Number: {obj.contractNumber}
           </h5>
         ),
+        meta:(
+            <Link route={`${obj.contract}`}>
+            <a>
+              <i className="teal file alternate icon"></i>
+              View confirmed Contract
+            </a>
+          </Link>
+        ),
         description: (
           <Link route={`/POContract/${obj.po}`}>
             <a>

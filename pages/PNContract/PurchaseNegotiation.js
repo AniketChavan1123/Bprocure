@@ -224,7 +224,7 @@ class PurchaseNegotiation extends Component {
           "Price":this.state.object[4],
           "Manufacturer Address":this.state.object[0],
           "Distributor Address":this.state.object[1],
-          "Contract Status":this.state.object[5]
+          "Contract Status":"Confirmed & distributor assigned"
         }
       //uploading metadata
       const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
