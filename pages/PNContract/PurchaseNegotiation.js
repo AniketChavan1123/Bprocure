@@ -202,15 +202,9 @@ class PurchaseNegotiation extends Component {
         // connect to Moralis server
       const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
       const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
-      Moralis.start({ serverUrl, appId });
-        //signing in to moralis
-        Moralis.authenticate().then(function (user) {
-          console.log('logged in')
-          });
-        //fetched contract object
-        this.state.object = await purchaseNegotiationCon.methods
-        .contracts(this.state.contractNumberAD)
-        .call();
+      await Moralis.start({ serverUrl, appId });
+        
+        
 
         const docRef = doc(this.state.db, "GPOs", selfaddress);
         let instituteName,registration;
@@ -218,18 +212,31 @@ class PurchaseNegotiation extends Component {
           instituteName = doc.data().institute;
           registration=doc.data().registration;
         });
-        // metadata to be uploaded
-        const contractDetails={
-          "Product Id":this.state.object[2],
-          "Price":this.state.object[4],
-          "Manufacturer Address":this.state.object[0],
-          "Distributor Address":this.state.object[1],
-          "Contract Status":this.state.object[5]
-        }
-      //uploading metadata
-      const file = new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
-      await file.saveIPFS();
-      const urlAt=file.ipfs();
+        let urlAt;
+
+        //signing in to moralis
+        await Moralis.authenticate().then(function (user) {
+            console.log('logged in')
+            //fetched contract object
+            this.state.object = await purchaseNegotiationCon.methods
+            .contracts(this.state.contractNumberAD)
+            .call();
+            // metadata to be uploaded
+            const contractDetails={
+            "Product Id":this.state.object[2],
+            "Price":this.state.object[4],
+            "Manufacturer Address":this.state.object[0],
+            "Distributor Address":this.state.object[1],
+            "Contract Status":this.state.object[5]
+            }
+            //uploading metadata
+            const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
+            await file.saveIPFS();
+            urlAt=await file.ipfs();
+
+          });
+        
+      
 
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {
