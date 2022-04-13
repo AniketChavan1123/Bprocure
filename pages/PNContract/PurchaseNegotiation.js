@@ -232,11 +232,10 @@ class PurchaseNegotiation extends Component {
       const urlAt=await file.ipfs();
         let poAtsp;
       const docRefgpo=doc(this.state.db,"GPOs",selfaddress);
-        await getDocs(docRefgpo).then((snapshot)=>{
-          snapshot.docs.forEach((doc)=>{
-            poAtsp=doc.data().po;
-          })
+        await getDoc(docRefgpo).then((doc)=>{
+          poAtsp=doc.data().po;
         })
+        console.log("po address",poAtsp)
 
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {
