@@ -4,6 +4,7 @@ import {
   Button,
   Input,
   Message,
+  Grid,
   Container,
   Segment,
 } from "semantic-ui-react";
@@ -106,57 +107,85 @@ class GPOIndex extends Component {
   render() {
     return (
       <IndexPage>
-        <Container>
-          <Segment>
-            <Form
-              onSubmit={this.onSubmitFormSignUp}
-              error={!!this.state.errorMessage}
-            >
-              <Form.Field style={{ marginTop: "20px" }}>
-                <label>Enter Organization name</label>
-                <Input
-                  label="institute"
-                  labelPosition="right"
-                  value={this.state.institute}
-                  onChange={(event) =>
-                    this.setState({ institute: event.target.value })
-                  }
-                ></Input>
-              </Form.Field>
-              <Form.Field style={{ marginTop: "20px" }}>
-                <label>Mail id</label>
-                <Input
-                  label="email"
-                  labelPosition="right"
-                  placeholder="joe1@gmail.com"
-                  value={this.state.mail}
-                  onChange={(event) =>
-                    this.setState({ mail: event.target.value })
-                  }
-                ></Input>
-              </Form.Field>
-              <Form.Field style={{ marginTop: "20px" }}>
-                <label>Password</label>
-                <Input
-                  label="password"
-                  type="password"
-                  labelPosition="right"
-                  value={this.state.password}
-                  onChange={(event) =>
-                    this.setState({ password: event.target.value })
-                  }
-                ></Input>
-              </Form.Field>
-              <Button color="teal">Sign Up</Button>
-              <Message error header="Oops!" content={this.state.errorMessage} />
-            </Form>
-          </Segment>
-          <Button color="teal">
-            <Link route={`/initiate/${this.state.account}`}>
-              <h5 style={{ color: "white" }}>Registered..Goto GPO Dashboard</h5>
-            </Link>
-          </Button>
-        </Container>
+        <div style={{ margin: "20px" }}>
+          <Container>
+            <Segment>
+              <Form
+                onSubmit={this.onSubmitFormSignUp}
+                error={!!this.state.errorMessage}
+              >
+                <Form.Field style={{ marginTop: "20px" }}>
+                  <label>Enter Organization name</label>
+                  <Input
+                    label="institute"
+                    labelPosition="right"
+                    value={this.state.institute}
+                    onChange={(event) =>
+                      this.setState({ institute: event.target.value })
+                    }
+                  ></Input>
+                </Form.Field>
+                <Form.Field style={{ marginTop: "20px" }}>
+                  <label>Mail id</label>
+                  <Input
+                    label="email"
+                    labelPosition="right"
+                    placeholder="joe1@gmail.com"
+                    value={this.state.mail}
+                    onChange={(event) =>
+                      this.setState({ mail: event.target.value })
+                    }
+                  ></Input>
+                </Form.Field>
+                <Form.Field style={{ marginTop: "20px" }}>
+                  <label>Password</label>
+                  <Input
+                    label="password"
+                    type="password"
+                    labelPosition="right"
+                    value={this.state.password}
+                    onChange={(event) =>
+                      this.setState({ password: event.target.value })
+                    }
+                  ></Input>
+                </Form.Field>
+                <Button color="teal">Sign Up</Button>
+                <Message
+                  error
+                  header="Oops!"
+                  content={this.state.errorMessage}
+                />
+              </Form>
+            </Segment>
+            <Button color="teal">
+              <Link route={`/initiate/${this.state.account}`}>
+                <h5 style={{ color: "white" }}>
+                  Registered..Goto GPO Dashboard
+                </h5>
+              </Link>
+            </Button>
+          </Container>
+          <Grid columns={2} divided>
+            <Grid.Row>
+              <Grid.Column>
+                <h1>A Pilot Project.....</h1>
+                <h2>What Do We Do?</h2>
+                <ul>
+                  <li>
+                    We provide a blockchain based platform for business
+                    procurement and replace simple contracts with smart
+                    contracts on ethereum.
+                  </li>
+                  <li>We aim to ensure transparency among trading partners</li>
+                  <li>We aim to ensures working capital and liquidity to all stake holders</li>
+                </ul>
+              </Grid.Column>
+              <Grid.Column>
+                <Image src="/images/wireframe/media-paragraph.png" />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
       </IndexPage>
     );
   }

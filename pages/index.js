@@ -45,7 +45,7 @@ class GPOIndex extends Component {
             <Divider></Divider>
           </Header>
           <Container>
-            <Grid columns={4} divided>
+            <Grid columns={4}>
               <Grid.Row>
                 <Grid.Column textAlign="center">
                   <Button secondary>
