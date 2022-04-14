@@ -164,7 +164,7 @@ class GPOIndex extends Component {
                 </h5>
               </Link>
             </Button>
-          </Container>
+          
           <Segment>
           <Grid columns={2} divided>
             <Grid.Row>
@@ -205,6 +205,7 @@ class GPOIndex extends Component {
             </Grid.Row>
           </Grid>
           </Segment>
+          </Container>
         </div>
       </IndexPage>
     );
