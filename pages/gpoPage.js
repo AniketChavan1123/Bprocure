@@ -164,47 +164,6 @@ class GPOIndex extends Component {
                 </h5>
               </Link>
             </Button>
-          
-          <Segment>
-          <Grid columns={2} divided>
-            <Grid.Row>
-              <Grid.Column>
-              <Button>hello</Button>
-                <h1>A Pilot Project.....</h1>
-                <h2>What Do We Do?</h2>
-                <ul>
-                  <li>
-                    We provide a blockchain based platform for business
-                    procurement and replace simple contracts with smart
-                    contracts on ethereum.
-                  </li>
-                  <li>We aim to ensure transparency among trading partners</li>
-                  <li>
-                    We aim to ensures working capital and liquidity to all stake
-                    holders
-                  </li>
-                </ul>
-              </Grid.Column>
-
-              <Grid.Column>
-                <h1>How to use this DApp.....</h1>
-                <h2>You must have MetaMask account</h2>
-                <ul>
-                  <li>
-                    We provide a blockchain based platform for business
-                    procurement and replace simple contracts with smart
-                    contracts on ethereum.
-                  </li>
-                  <li>We aim to ensure transparency among trading partners</li>
-                  <li>
-                    We aim to ensures working capital and liquidity to all stake
-                    holders
-                  </li>
-                </ul>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-          </Segment>
           </Container>
         </div>
       </IndexPage>
