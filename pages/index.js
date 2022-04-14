@@ -85,16 +85,16 @@ class GPOIndex extends Component {
                 <h1 style={{ margin: "5px", color: "orange" }}>A Pilot Project.....</h1>
                 <h2 style={{ margin: "5px", color: "orange" }}>What Do We Do?</h2>
                 <ul>
-                  <li>
+                  <li><h3>
                     We provide a blockchain based platform for business
-                    procurement on ethereum smart contracts
+                    procurement on ethereum smart contracts</h3>
                   </li>
-                  <li>We aim to ensure transparency among trading partners</li>
+                  <li><h3>We aim to ensure transparency among trading partners</h3></li>
                   <li>
-                    We aim to ensures working capital and liquidity to all stake
-                    holders
+                  <h3>We aim to ensures working capital and liquidity to all stake
+                    holders</h3>
                   </li>
-                  <li>We provide functionality to store contract metadata on IPFS</li>
+                  <li><h3>We provide functionality to store contract metadata on IPFS</h3></li>
                 </ul>
                 </Segment>
               </Grid.Column>
@@ -105,13 +105,13 @@ class GPOIndex extends Component {
                 <h2 style={{ margin: "5px", color: "orange" }}>You must have MetaMask account</h2>
                 <ul>
                   <li>
-                    GPO purchases goods from manufacturer on behalf of Service providers 
+                  <h3>GPO purchases goods from manufacturer on behalf of Service providers</h3> 
                   </li>
-                  <li>Service Providers and Manufacturer register themselves in Contract</li>
-                  <li>Purchase is made and on decided price Service Provider issues Purchase Order</li>
+                  <li><h3>Service Providers and Manufacturer register themselves in Contract</h3></li>
+                  <li><h3>Purchase is made and on decided price Service Provider issues Purchase Order</h3></li>
                   <li>
-                    Distributor is registered by GPO and is asked to deliver confirmed contract to Service Providers
-                  </li>
+                  <h3>Distributor is registered by GPO and is asked to deliver confirmed contract to Service Providers
+                  </h3></li>
 
                 </ul>
                 </Segment>
