@@ -21,7 +21,7 @@ import {
   orderBy,
   serverTimestamp,
   updateDoc,
-  setDoc
+  setDoc,
 } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
@@ -50,8 +50,8 @@ class GPOIndex extends Component {
     lerrorMessage: "",
     auth: "",
     db: "",
-    account:"",
-    account1:""
+    account: "",
+    account1: "",
   };
   async componentDidMount() {
     const firebaseConfig = {
@@ -69,34 +69,34 @@ class GPOIndex extends Component {
     this.setState({ auth: aut });
     this.setState({ db: d });
     const accounts = await web3.eth.getAccounts();
-    this.setState({account:accounts[0]});
+    this.setState({ account: accounts[0] });
   }
- 
+
   onSubmitFormSignUp = async (event) => {
     event.preventDefault();
-    try{
-    console.log("i am here");
-    const accounts = await web3.eth.getAccounts();
-    this.setState({account:accounts[0]});
-    const selfaddress=accounts[0];
-    const insti=this.state.institute;
-    console.log(this.state.institute);
-    createUserWithEmailAndPassword(
-      this.state.auth,
-      this.state.mail,
-      this.state.password
-    )
-      .then(async (cred) => {
-        console.log("user created ", cred.user);
-        const colref=collection(this.state.db,'GPOs');
-        await setDoc(doc(this.state.db, "GPOs", selfaddress), {
-          institute:insti,
+    try {
+      console.log("i am here");
+      const accounts = await web3.eth.getAccounts();
+      this.setState({ account: accounts[0] });
+      const selfaddress = accounts[0];
+      const insti = this.state.institute;
+      console.log(this.state.institute);
+      createUserWithEmailAndPassword(
+        this.state.auth,
+        this.state.mail,
+        this.state.password
+      )
+        .then(async (cred) => {
+          console.log("user created ", cred.user);
+          const colref = collection(this.state.db, "GPOs");
+          await setDoc(doc(this.state.db, "GPOs", selfaddress), {
+            institute: insti,
+          });
+        })
+        .catch((err) => {
+          this.setState({ errorMessage: err.message });
         });
-      })
-      .catch((err) => {
-        this.setState({ errorMessage: err.message });
-      });
-    }catch(err){
+    } catch (err) {
       console.log(err.message);
     }
 
@@ -150,9 +150,12 @@ class GPOIndex extends Component {
               <Button color="teal">Sign Up</Button>
               <Message error header="Oops!" content={this.state.errorMessage} />
             </Form>
-            
-               <Button color="teal"><Link route={`/initiate/${this.state.account}`}><h3 style={{color:"white"}}>Goto GPO Dashboard</h3></Link></Button>
           </Segment>
+          <Button color="teal">
+            <Link route={`/initiate/${this.state.account}`}>
+              <h5 style={{ color: "white" }}>Registered..Goto GPO Dashboard</h5>
+            </Link>
+          </Button>
         </Container>
       </IndexPage>
     );
