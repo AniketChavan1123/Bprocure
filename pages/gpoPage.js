@@ -177,11 +177,28 @@ class GPOIndex extends Component {
                     contracts on ethereum.
                   </li>
                   <li>We aim to ensure transparency among trading partners</li>
-                  <li>We aim to ensures working capital and liquidity to all stake holders</li>
+                  <li>
+                    We aim to ensures working capital and liquidity to all stake
+                    holders
+                  </li>
                 </ul>
               </Grid.Column>
+
               <Grid.Column>
-                <Image src="/images/wireframe/media-paragraph.png" />
+                <h1>How to use this DApp.....</h1>
+                <h2>You must have MetaMask account</h2>
+                <ul>
+                  <li>
+                    We provide a blockchain based platform for business
+                    procurement and replace simple contracts with smart
+                    contracts on ethereum.
+                  </li>
+                  <li>We aim to ensure transparency among trading partners</li>
+                  <li>
+                    We aim to ensures working capital and liquidity to all stake
+                    holders
+                  </li>
+                </ul>
               </Grid.Column>
             </Grid.Row>
           </Grid>
