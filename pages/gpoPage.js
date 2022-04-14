@@ -168,6 +168,7 @@ class GPOIndex extends Component {
           <Grid columns={2} divided>
             <Grid.Row>
               <Grid.Column>
+              <Button>hello</Button>
                 <h1>A Pilot Project.....</h1>
                 <h2>What Do We Do?</h2>
                 <ul>
