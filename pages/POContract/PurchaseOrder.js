@@ -128,6 +128,12 @@ class POContract extends Component {
       await file.saveIPFS();
       const urlAts=await file.ipfs();
 
+      const docRef = doc(this.state.db, "GPOs", gpo);
+        let rsd;
+        await getDoc(docRef).then((doc) => {
+          rsd = doc.data().rs;
+        });
+
       console.log(instituteName,gpo);
       const colRefDis=collection(this.state.db,"Distributor");
       addDoc(colRefDis, {
@@ -137,7 +143,8 @@ class POContract extends Component {
         distributor:this.state.distributorAdd,
         contractNumber:this.props.contract,
         po:this.props.address,
-        spReceipt:urlAts
+        spReceipt:urlAts,
+        rs:rsd
       }).then(() => {
         console.log("added");
       });
