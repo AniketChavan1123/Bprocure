@@ -99,11 +99,14 @@ class POContract extends Component {
         let urlAtf;
       const colRefSer = collection(this.state.db, "ServiceProvider");
       const q=query(colRefSer,where("contractNumber","==",this.props.contract))
-      await getDoc(q).then((doc)=>{
+      await getDocs(q).then((snapshot)=>{
+        snapshot.docs.forEach((doc) => {
           gpo=doc.data().gpo;
           instituteName=doc.data().institute;
           urlAtf=doc.data().contract;
         });
+        
+      })
 
         // connect to Moralis server
         const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
