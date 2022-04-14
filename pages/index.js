@@ -82,8 +82,8 @@ class GPOIndex extends Component {
             <Grid.Row>
               <Grid.Column>
               <Segment>
-                <h1>A Pilot Project.....</h1>
-                <h2>What Do We Do?</h2>
+                <h1 style={{ margin: "5px", color: "orange" }}>A Pilot Project.....</h1>
+                <h2 style={{ margin: "5px", color: "orange" }}>What Do We Do?</h2>
                 <ul>
                   <li>
                     We provide a blockchain based platform for business
@@ -95,25 +95,25 @@ class GPOIndex extends Component {
                     We aim to ensures working capital and liquidity to all stake
                     holders
                   </li>
+                  <li>We provide functionality to store contract metadata on IPFS</li>
                 </ul>
                 </Segment>
               </Grid.Column>
               
               <Grid.Column>
               <Segment>
-                <h1>How to use this DApp.....</h1>
-                <h2>You must have MetaMask account</h2>
+                <h1 style={{ margin: "5px", color: "orange" }}>How to use this DApp.....</h1>
+                <h2 style={{ margin: "5px", color: "orange" }}>You must have MetaMask account</h2>
                 <ul>
                   <li>
-                    We provide a blockchain based platform for business
-                    procurement and replace simple contracts with smart
-                    contracts on ethereum.
+                    GPO purchases goods from manufacturer on behalf of Service providers 
                   </li>
-                  <li>We aim to ensure transparency among trading partners</li>
+                  <li>Service Providers and Manufacturer register themselves in Contract</li>
+                  <li>Purchase is made and on decided price Service Provider issues Purchase Order</li>
                   <li>
-                    We aim to ensures working capital and liquidity to all stake
-                    holders
+                    Distributor is registered by GPO and is asked to deliver confirmed contract to Service Providers
                   </li>
+
                 </ul>
                 </Segment>
               </Grid.Column>
