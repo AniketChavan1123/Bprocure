@@ -135,7 +135,7 @@ class POContract extends Component {
         gpo: gpo,
         poNumber: this.state.poNumber,
         distributor:this.state.distributorAdd,
-        contractNumber:this.state.contractNumber,
+        contractNumber:this.props.contract,
         po:this.props.address,
         spReceipt:urlAts
       }).then(() => {
