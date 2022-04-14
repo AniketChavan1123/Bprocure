@@ -87,8 +87,7 @@ class GPOIndex extends Component {
                 <ul>
                   <li>
                     We provide a blockchain based platform for business
-                    procurement and replace simple contracts with smart
-                    contracts on ethereum.
+                    procurement on ethereum smart contracts
                   </li>
                   <li>We aim to ensure transparency among trading partners</li>
                   <li>
