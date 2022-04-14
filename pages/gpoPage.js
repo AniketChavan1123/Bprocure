@@ -68,25 +68,10 @@ class GPOIndex extends Component {
     const aut = getAuth();
     this.setState({ auth: aut });
     this.setState({ db: d });
-  }
-  onSubmitFormlogin = async (event) => {
-    event.preventDefault();
     const accounts = await web3.eth.getAccounts();
     this.setState({account:accounts[0]});
-    console.log("i am here");
-    signInWithEmailAndPassword(
-      this.state.auth,
-      this.state.lmail,
-      this.state.lpassword
-    )
-      .then((cred) => {
-        console.log("user logged in ", cred.user);
-      })
-      .catch((err) => {
-        this.setState({ lerrorMessage: err.message });
-      });
-    this.setState({ lpassword: "", lmail: "" });
-  };
+  }
+ 
   onSubmitFormSignUp = async (event) => {
     event.preventDefault();
     try{
@@ -165,42 +150,8 @@ class GPOIndex extends Component {
               <Button color="teal">Sign Up</Button>
               <Message error header="Oops!" content={this.state.errorMessage} />
             </Form>
-            <Form
-              onSubmit={this.onSubmitFormlogin}
-              error={!!this.state.lerrorMessage}
-            >
-              <Form.Field style={{ marginTop: "20px" }}>
-                <label>Mail id</label>
-                <Input
-                  label="email"
-                  labelPosition="right"
-                  placeholder="joe1@gmail.com"
-                  value={this.state.lmail}
-                  onChange={(event) =>
-                    this.setState({ lmail: event.target.value })
-                  }
-                ></Input>
-              </Form.Field>
-              <Form.Field style={{ marginTop: "20px" }}>
-                <label>Password</label>
-                <Input
-                  label="password"
-                  type="password"
-                  labelPosition="right"
-                  value={this.state.lpassword}
-                  onChange={(event) =>
-                    this.setState({ lpassword: event.target.value })
-                  }
-                ></Input>
-              </Form.Field>
-              <Button color="teal">Sign in</Button>
-              <Message
-                error
-                header="Oops!"
-                content={this.state.lerrorMessage}
-              />
-               <Button color="teal"><Link route={`/initiate/${this.state.account}`}>Goto GPO Dashboard</Link></Button>
-            </Form>
+            
+               <Button color="teal"><Link route={`/initiate/${this.state.account}`}><h3 style={{color:"white"}}>Goto GPO Dashboard</h3></Link></Button>
           </Segment>
         </Container>
       </IndexPage>
