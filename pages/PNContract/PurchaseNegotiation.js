@@ -230,7 +230,7 @@ class PurchaseNegotiation extends Component {
       const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
       await file.saveIPFS();
       const urlAt=await file.ipfs();
-        let poAtsp;
+        let poAtsp=0;
       const docRefgpo=doc(this.state.db,"GPOs",selfaddress);
         await getDoc(docRefgpo).then((doc)=>{
           poAtsp=doc.data().po;
