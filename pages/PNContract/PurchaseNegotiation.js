@@ -230,14 +230,16 @@ class PurchaseNegotiation extends Component {
       const file = await new Moralis.File("file.json",{base64:btoa(JSON.stringify(contractDetails))});
       await file.saveIPFS();
       const urlAt=await file.ipfs();
-        let poAtsp=0;
+        let poAtsp;
       const docRefgpo=doc(this.state.db,"GPOs",selfaddress);
         await getDoc(docRefgpo).then((doc)=>{
           poAtsp=doc.data().po;
         })
         console.log("po address",poAtsp)
-        if(typeof poAtsp===undefined)
+        if(poAtsp === undefined){
         poAtsp=0;
+        }
+        
 
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {
