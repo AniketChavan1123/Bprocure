@@ -129,7 +129,7 @@ class POContract extends Component {
       const urlAts=await file.ipfs();
 
       const docRef = doc(this.state.db, "GPOs", gpo);
-        let rsd;
+        let rsd=0;
         await getDoc(docRef).then((doc) => {
           rsd = doc.data().rs;
         });
