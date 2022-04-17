@@ -135,6 +135,7 @@ class POContract extends Component {
         });
         if(rsd===undefined)
         {
+          console.log("yes rsd is undefined")
         rsd=0;
         }
 
