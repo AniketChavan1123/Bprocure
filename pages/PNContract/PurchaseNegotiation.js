@@ -236,6 +236,8 @@ class PurchaseNegotiation extends Component {
           poAtsp=doc.data().po;
         })
         console.log("po address",poAtsp)
+        if(typeof poAtsp===undefined)
+        poAtsp=0;
 
         const colRefServiceP = collection(this.state.db, "ServiceProvider");  // anyone can see
         addDoc(colRefServiceP, {

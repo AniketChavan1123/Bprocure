@@ -133,6 +133,8 @@ class POContract extends Component {
         await getDoc(docRef).then((doc) => {
           rsd = doc.data().rs;
         });
+        if(typeof rsd===undefined)
+        rsd=0;
 
       console.log(instituteName,gpo);
       const colRefDis=collection(this.state.db,"Distributor");
