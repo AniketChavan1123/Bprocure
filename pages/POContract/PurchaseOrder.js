@@ -129,12 +129,14 @@ class POContract extends Component {
       const urlAts=await file.ipfs();
 
       const docRef = doc(this.state.db, "GPOs", gpo);
-        let rsd=0;
+        let rsd;
         await getDoc(docRef).then((doc) => {
           rsd = doc.data().rs;
         });
-        if(typeof rsd===undefined)
+        if(rsd===undefined)
+        {
         rsd=0;
+        }
 
       console.log(instituteName,gpo);
       const colRefDis=collection(this.state.db,"Distributor");
