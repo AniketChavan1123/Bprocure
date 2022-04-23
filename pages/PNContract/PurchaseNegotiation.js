@@ -466,7 +466,7 @@ class PurchaseNegotiation extends Component {
                   </Form.Field>
 
                   <Button loading={this.state.loadingAD} color="teal">
-                    Negotiate Contract
+                    Assign Distributor
                   </Button>
                   <Message
                     style={{ marginTop: "20px" }}

@@ -131,7 +131,7 @@ class Registration extends Component {
               }
             ></Input>
           </Form.Field>
-          <Button loading={this.state.loading3} color="teal">Register Distributor</Button>
+          <Button loading={this.state.loading3} color="teal">Register Service Provider</Button>
         <Message error header="Oops!" content={this.state.errorMessage3} />
         </Form>
         
