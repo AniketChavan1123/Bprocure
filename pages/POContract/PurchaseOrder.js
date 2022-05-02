@@ -109,8 +109,8 @@ class POContract extends Component {
       })
 
         // connect to Moralis server
-        const serverUrl = "https://xn7t1rpnst4l.usemoralis.com:2053/server";
-        const appId = "uJvg3vcMah7zJiBsV1xPsWvJTdra237nzix06Cnb";
+        const serverUrl = "https://cz3jtmvkkbfb.usemoralis.com:2053/server";
+        const appId = "tXkGqu6o3wMPDp1yC4UFojswibJAYNFx8XdDAvIh";
         await Moralis.start({ serverUrl, appId });
           //signing in to moralis
           await Moralis.authenticate().then(function (user) {
