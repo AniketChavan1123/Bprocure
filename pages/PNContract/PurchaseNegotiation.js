@@ -200,8 +200,8 @@ class PurchaseNegotiation extends Component {
           from: accounts[0],
         });
         // connect to Moralis server
-      const serverUrl = "https://cz3jtmvkkbfb.usemoralis.com:2053/server";
-      const appId = "tXkGqu6o3wMPDp1yC4UFojswibJAYNFx8XdDAvIh";
+      const serverUrl = "https://n7yulkpkgas9.usemoralis.com:2053/server";
+      const appId = "CgZm9DI6xP1PkrXeYCXapWxj05qvdMNkJ3l7UV69";
       await Moralis.start({ serverUrl, appId });
         //signing in to moralis
         await Moralis.authenticate().then(function (user) {
